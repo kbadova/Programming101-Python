@@ -1,6 +1,8 @@
 class BankAccount:
 
     def __init__(self, name, initial_balance, currency):
+        if initial_balance < 0:
+            raise ValueError
         self._name = name
         self._initial_balance = initial_balance
         self._currency = currency
@@ -8,9 +10,12 @@ class BankAccount:
         self.list_history.append("Account was created")
 
     def deposit(self, amount):
-        self._initial_balance += amount
-        self.list_history.append("Deposit {}{}".format(amount, self._currency))
-        return self._initial_balance
+        if amount < 0:
+            raise ValueError
+        else:
+            self._initial_balance += amount
+            self.list_history.append("Deposited {}{}".format(amount, self._currency))
+            return self._initial_balance
 
     def balance(self):
         self.list_history.append("Balance check -> {}{}".format(self._initial_balance, self._currency))
@@ -42,5 +47,4 @@ class BankAccount:
 
     def history(self):
         return self.list_history
-
 
