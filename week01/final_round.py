@@ -14,19 +14,21 @@ def count_words(arr):
         dictionary[i] = arr.count(str(i))
     return dictionary
 
-# print(count_words(["apple", "banana", "apple", "pie"]))
-
 
 def nan_expand(times):
     list_of_a = []
+    if times == 0:
+        return ""
     for i in range(0, times):
         list_of_a.append("Not a")
     list_of_a.append("NaN")
     return " ".join(str(x) for x in list_of_a)
-# print(nan_expand(3))
+print(nan_expand(0))
 
 
 def iterations_of_nan_expand(expanded):
+    if "NaN" not in expanded:
+        return False
     "".join(to_character(expanded))
     return expanded.replace(" ", "").count("Nota")
 # print(iterations_of_nan_expand("Not a Not a NaN"))
@@ -50,8 +52,6 @@ def group(list_of_group):
         list_of_group = list_of_group[len(current_group):]
     return result
 
-#print(group([1, 2, 1, 2, 3, 3]))
-
 
 def max_consecutive(items):
     list1_of_len = []
@@ -59,16 +59,12 @@ def max_consecutive(items):
             list1_of_len.append(len(i))
     return max(list1_of_len)
 
-# print(max_consecutive([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 5]))
-
 
 def sum_of_numbers(str):
     suma = 0
     for i in re.findall('\d+', str):
         suma += int(i)
     return suma
-
-# print(sum_of_numbers("ab"))
 
 
 def check_first_station(stations, result, tank_size):
@@ -93,7 +89,6 @@ def gas_stations(distance, tank_size, stations):
             result.append(maxi)
     return result
 
-# print(gas_stations(320, 90, [50, 80, 140, 180, 220, 290]))
 
 def dictionary(number, count):
     dictionary = {}
@@ -136,4 +131,54 @@ def numbers_to_message(sequence):
             break
     return string
 
-# print(numbers_to_message([1, 4, 4, 4, 8, 8, 8, 6, 6, 6, 0, 3, 3, 0, 1, 7, 7, 7, 7, 7, 2, 6, 6, 3, 2]))
+
+def diction(el):
+    dictionary = {}
+    dictionary[" "] = [0]
+    dictionary["a"] = [2]
+    dictionary["b"] = [2, 2]
+    dictionary["c"] = [2, 2, 2]
+    dictionary["d"] = [3]
+    dictionary["e"] = [3, 3]
+    dictionary["f"] = [3, 3, 3]
+    dictionary["g"] = [4]
+    dictionary["h"] = [4, 4]
+    dictionary["i"] = [4, 4, 4]
+    dictionary["j"] = [5]
+    dictionary["k"] = [5, 5]
+    dictionary["l"] = [5, 5, 5]
+    dictionary["m"] = [6]
+    dictionary["n"] = [6, 6]
+    dictionary["o"] = [6, 6, 6]
+    dictionary["p"] = [7]
+    dictionary["q"] = [7, 7]
+    dictionary["r"] = [7, 7, 7]
+    dictionary["s"] = [7, 7, 7, 7]
+    dictionary["t"] = [8]
+    dictionary["u"] = [8, 8]
+    dictionary["v"] = [8, 8, 8]
+    dictionary["w"] = [9]
+    dictionary["x"] = [9, 9]
+    dictionary["y"] = [9, 9, 9]
+    dictionary["z"] = [9, 9, 9, 9]
+    return dictionary[el]
+
+
+def message_to_numbers(message):
+    message += " "
+    list_message = []
+    for el in range(0, len(message)-1):
+        current = message[el]
+        next_el = message[el + 1]
+        if current != next_el:
+            if current.isupper():
+                list_message.append(1)
+                current = current.lower()
+        for number in diction(current):
+            list_message.append(number)
+        if el != len(message) - 2:
+            if diction(current)[0] == diction(next_el.lower())[0]:
+                list_message.append(-1)
+    return list_message
+
+# print(message_to_numbers("Ivo e Panda"))
