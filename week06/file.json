@@ -1,0 +1,12 @@
+{
+    "{'name': 'Ivo', 'mail': 'ivo@pandamail.com', 'gender': 'male'}": [
+        "{'name': 'Rado', 'mail': 'rado@pandamail.com', 'gender': 'male'}"
+    ],
+    "{'name': 'Rado', 'mail': 'rado@pandamail.com', 'gender': 'male'}": [
+        "{'name': 'Ivo', 'mail': 'ivo@pandamail.com', 'gender': 'male'}",
+        "{'name': 'Tony', 'mail': 'tony@pandamail.com', 'gender': 'female'}"
+    ],
+    "{'name': 'Tony', 'mail': 'tony@pandamail.com', 'gender': 'female'}": [
+        "{'name': 'Rado', 'mail': 'rado@pandamail.com', 'gender': 'male'}"
+    ]
+}
