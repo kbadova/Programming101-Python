@@ -1,0 +1,2 @@
+something_heavy was called and took 2.0023696422576904 seconds to complete
+something_heavy was called and took 2.0022828578948975 seconds to complete
